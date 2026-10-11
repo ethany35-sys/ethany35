@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fubon Securities — Ethan Yang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="../index.html">Ethan's Portfolio</a>
+    <nav>
+      <a href="../index.html#about">About me</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="page org-head">
+      <a class="back hand" href="../index.html#orgs">← back to all work</a>
+      <p class="hand label">Finance Analyst Intern · Jun – Aug 2026</p>
+      <h2>Fubon Securities</h2>
+      <p class="blurb">Distribution &amp; Institutional Services, Taipei, Taiwan. I built tools and research that the institutional services desk used every day.</p>
+    </section>
+    <section class="projects-list">
+    <article class="project" id="trading-weekly">
+      <a class="polaroid solo" href="trading-weekly.html" aria-label="Open the Trading Weekly case study"><span class="tape" aria-hidden="true"></span><div class="photo"><img class="top" src="../images/Fubon%20Project/tw-page-1.jpg" alt="Cover page of Ethan's Trading Weekly with key topics and a weekly calendar"></div></a>
+      <div class="project-text">
+        <h3>Ethan&#x27;s Trading Weekly</h3>
+        <dl>
+<dt>What I did</dt><dd>Authored a stock idea and a weekly report for internal use within the department.</dd>
+<dt>Outcome</dt><dd>Used internally by the department. <a class="more hand" href="trading-weekly.html">Read the case study →</a></dd>
+        </dl>
+      </div>
+    </article>
+    <article class="project no-photo" id="ai-briefing">
+      <div class="project-text">
+        <h3>AI Morning News Briefing</h3>
+        <dl>
+<dt>Problem</dt><dd>Preparing the overnight market picture by hand took the desk about an hour every morning.</dd>
+<dt>What I did</dt><dd>Built an AI agent that pulls financial news, sorts and summarizes overnight developments, and automatically emails a formatted briefing to the institutional services desk.</dd>
+<dt>Tools</dt><dd>AI agent, automated email</dd>
+<dt>Outcome</dt><dd>Cut daily prep from 60 minutes to 10.</dd>
+        </dl>
+      </div>
+    </article>
+    <article class="project no-photo" id="supply-chain">
+      <div class="project-text">
+        <h3>Semiconductor Supply-Chain Map</h3>
+        <dl>
+<dt>Problem</dt><dd>Taiwan&#x27;s semiconductor industry is a web of firms that is hard to see all at once.</dd>
+<dt>What I did</dt><dd>Mapped 50+ Taiwanese semiconductor firms into a visual supply-chain framework.</dd>
+<dt>Outcome</dt><dd>Adopted as the company reference.</dd>
+        </dl>
+      </div>
+    </article>
+    <article class="project no-photo" id="weekly-template">
+      <div class="project-text">
+        <h3>Bloomberg-Linked Weekly Report Template</h3>
+        <dl>
+<dt>Problem</dt><dd>The desk&#x27;s weekly market and investment-idea report needed a consistent, data-connected format.</dd>
+<dt>What I did</dt><dd>Designed the Bloomberg-linked template behind the weekly report.</dd>
+<dt>Tools</dt><dd>Bloomberg Terminal</dd>
+<dt>Outcome</dt><dd>Became the template the desk&#x27;s weekly report is built on.</dd>
+        </dl>
+      </div>
+    </article>
+    </section>
+  </main>
+  <footer>© <span id="year"></span> Ethan Yang · <span class="hand">thanks for stopping by!</span></footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

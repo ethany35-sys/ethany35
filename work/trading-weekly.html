@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ethan's Trading Weekly — Ethan Yang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="../index.html">Ethan's Portfolio</a>
+    <nav>
+      <a href="../index.html#about">About me</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="page org-head">
+      <a class="back hand" href="fubon.html">← back to Fubon Securities</a>
+      <p class="hand label">Finance Analyst Intern · Week of Jul 13 – 17, 2026</p>
+      <h2>Ethan's Trading Weekly</h2>
+      <p class="blurb">An 8-page weekly report for Fubon's institutional services desk. I designed the layout and template, built the Bloomberg-linked tables, and wrote the weekly investment ideas. Use the arrows or swipe to flip through the pages.</p>
+      <p class="note-small">I created this report and its template, and I wrote the sections shown here. Any data that isn't shown belongs to the companies involved, and I don't have access or permission to share it. This is a work sample, not research or investment advice.</p>
+    </section>
+
+    <section class="viewer" aria-roledescription="carousel" aria-label="Trading Weekly pages">
+      <div class="stage">
+        <button class="v-arrow" id="v-prev" aria-label="Previous page">←</button>
+        <figure class="sheet" id="sheet">
+          <span class="tape" aria-hidden="true"></span>
+          <img id="v-img" src="../images/Fubon%20Project/tw-page-1.jpg" alt="Cover page with key topics and a weekly calendar">
+        </figure>
+        <button class="v-arrow" id="v-next" aria-label="Next page">→</button>
+      </div>
+      <p class="v-count"><span class="hand" id="v-label">p.1 Cover</span> <small id="v-num">1 / 8</small></p>
+      <div class="thumbs" role="tablist" aria-label="Jump to a page">
+          <button class="thumb" data-i="0" aria-label="Go to page 1: Cover"><img src="../images/Fubon%20Project/tw-page-1.jpg" alt="" loading="lazy"></button>
+          <button class="thumb" data-i="1" aria-label="Go to page 2: Weekly Ideas"><img src="../images/Fubon%20Project/tw-page-2.jpg" alt="" loading="lazy"></button>
+          <button class="thumb" data-i="2" aria-label="Go to page 3: Desk Top Picks"><img src="../images/Fubon%20Project/tw-page-3.jpg" alt="" loading="lazy"></button>
+          <button class="thumb" data-i="3" aria-label="Go to page 4: CB Deals"><img src="../images/Fubon%20Project/tw-page-4.jpg" alt="" loading="lazy"></button>
+          <button class="thumb" data-i="4" aria-label="Go to page 5: CB Filings"><img src="../images/Fubon%20Project/tw-page-5.jpg" alt="" loading="lazy"></button>
+          <button class="thumb" data-i="5" aria-label="Go to page 6: CB Candidates"><img src="../images/Fubon%20Project/tw-page-6.jpg" alt="" loading="lazy"></button>
+          <button class="thumb" data-i="6" aria-label="Go to page 7: Appendix: Figures 1.1 – 1.3"><img src="../images/Fubon%20Project/tw-page-7.jpg" alt="" loading="lazy"></button>
+          <button class="thumb" data-i="7" aria-label="Go to page 8: Appendix: Figures 1.4 & 2.1"><img src="../images/Fubon%20Project/tw-page-8.jpg" alt="" loading="lazy"></button>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Ethan Yang · <span class="hand">thanks for stopping by!</span></footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const pages = [
+      { src: "../images/Fubon%20Project/tw-page-1.jpg", label: "Cover", alt: "Cover page with key topics and a weekly calendar" },
+      { src: "../images/Fubon%20Project/tw-page-2.jpg", label: "Weekly Ideas", alt: "Weekly Ideas: two investment ideas with key takeaways and risks" },
+      { src: "../images/Fubon%20Project/tw-page-3.jpg", label: "Desk Top Picks", alt: "Desk Top Picks table by sector" },
+      { src: "../images/Fubon%20Project/tw-page-4.jpg", label: "CB Deals", alt: "CB Deals: convertible bonds in bookbuilding and auction" },
+      { src: "../images/Fubon%20Project/tw-page-5.jpg", label: "CB Filings", alt: "CB Deals: filing subjects" },
+      { src: "../images/Fubon%20Project/tw-page-6.jpg", label: "CB Candidates", alt: "Board-approved CB issuance candidates" },
+      { src: "../images/Fubon%20Project/tw-page-7.jpg", label: "Appendix: Figures 1.1 – 1.3", alt: "Appendix with a share table, an HBM capacity chart and a DRAM price table" },
+      { src: "../images/Fubon%20Project/tw-page-8.jpg", label: "Appendix: Figures 1.4 & 2.1", alt: "Appendix with a capex comparison table and a Broadcom vs MediaTek chart" }
+    ];
+    const img = document.getElementById("v-img"), sheet = document.getElementById("sheet");
+    const label = document.getElementById("v-label"), num = document.getElementById("v-num");
+    const thumbs = [...document.querySelectorAll(".thumb")];
+    let cur = 0;
+    function show(n) {
+      cur = (n + pages.length) % pages.length;
+      const p = pages[cur];
+      sheet.classList.add("flip");
+      setTimeout(() => {
+        img.src = p.src; img.alt = p.alt;
+        sheet.classList.remove("flip");
+      }, 150);
+      label.textContent = "p." + (cur + 1) + " " + p.label;
+      num.textContent = (cur + 1) + " / " + pages.length;
+      thumbs.forEach((t, k) => t.classList.toggle("on", k === cur));
+      new Image().src = pages[(cur + 1) % pages.length].src; // preload the next page
+    }
+    document.getElementById("v-prev").onclick = () => show(cur - 1);
+    document.getElementById("v-next").onclick = () => show(cur + 1);
+    thumbs.forEach((t, k) => t.onclick = () => show(k));
+    addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") show(cur + 1);
+      if (e.key === "ArrowLeft") show(cur - 1);
+    });
+    let x0 = null;
+    sheet.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+    sheet.addEventListener("touchend", e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+    show(0);
+  </script>
+</body>
+</html>
