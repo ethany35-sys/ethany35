@@ -574,3 +574,18 @@ html[data-theme="terracotta"] {
 @media (max-aspect-ratio: 3/2) and (prefers-reduced-motion: no-preference) {   /* landscape museum photo */
   html[data-theme="terracotta"] .hero { animation: hero-pan 30s ease-in-out infinite alternate; }
 }
+
+/* logo and links sit at the far left and far right of the full-width bar, with a small, size-aware margin */
+.nav { padding: 14px clamp(14px, 3vw, 44px); }
+@media (max-width: 640px) {
+  .nav { padding: 12px 14px; }
+}
+@media (max-width: 370px) {
+  .nav { padding: 10px 12px; }
+  .logo { font-size: 16px; }
+  .nav nav { gap: 9px; font-size: 12px; }
+}
+
+/* the Experience timeline runs edge to edge across the window; the first card still lines up with the page content */
+.tl-scroll { width: 100vw; margin-left: calc(50% - 50vw); }
+.tl-track { padding-inline: max(24px, calc((100vw - 1040px) / 2 + 24px)); }
